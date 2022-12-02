@@ -1,0 +1,10 @@
+.chosenTypes{
+    position: relative;
+    width: min-content;
+    height: min-content;
+    background-color: lightskyblue;
+    border-radius: 20px;
+    border-color: aquamarine;
+    font-size: x-large;
+    font-size: xx-large;
+  }

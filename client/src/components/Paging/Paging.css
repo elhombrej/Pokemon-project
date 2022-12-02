@@ -1,0 +1,28 @@
+
+.unOrderedList{
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+
+}
+.pages:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 12px 16px #000000b8;
+    text-align: center;
+    transition: all 0.25s;
+
+}
+
+.pages{
+    position: relative;
+    display: flex;
+    width: min-content;
+    height: min-content;
+    background-color: lightblue;
+    border-radius: 20px;
+    border-color: aquamarine;
+    padding: 0.5rem;
+    justify-content: center;
+    cursor: pointer;
+    margin: 2px;
+}
