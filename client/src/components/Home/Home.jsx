@@ -1,14 +1,14 @@
 import React from "react";
 // import { connect } from "react-redux";
 import "./Home.css";
-import { getPokemons, getTypes, filterCreated, orderByName, orderByAttack, filterTypes, backgroundStyle } from "../../redux/actions";
+import { getPokemons, getTypes, filterCreated, orderByName, orderByAttack, filterTypes, backgroundStyle, cardSize } from "../../redux/actions";
 import {useState,useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paging from "../Paging/Paging";
 import SearchBar from "../SearchBar/SearchBar";
-//import Loader from "../Loader/Loader";
+import Loader from "../Loader/Loader";
 
 export default function Home(){
 
@@ -24,16 +24,14 @@ export default function Home(){
 
     const backgroundTheme = useSelector((state) => state.backgroundStyle);
 
-
-
     //Estado local sobre el paginado:
 
     const[currentPage, setCurrentPage] = useState(1);
-    const [pokemonsPerPage,/*setPokemonsPerPage*/] = useState(12);
+    const [pokemonsPerPage,setPokemonsPerPage] = useState(12);
     const indexOfLastPokemon = currentPage * pokemonsPerPage;
     const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
     const currentPokemons = allPokemons.slice(indexOfFirstPokemon,indexOfLastPokemon);
-    const[/*order*/, setOrder] = useState('');
+    const[order, setOrder] = useState('');
 
     const paging = (pageNumber)=>{
         setCurrentPage(pageNumber)
@@ -48,10 +46,6 @@ export default function Home(){
     useEffect(()=>{
         dispatch(getTypes())
     },[dispatch])
-
-    // useEffect(()=>{
-    //     dispatch(backgroundStyle())
-    // },[dispatch])
 
     //Despacho la accion getPokemons a lhacer click
 
@@ -93,6 +87,11 @@ export default function Home(){
         dispatch(backgroundStyle(element));
     }
 
+    function handleSize(element){
+        element.preventDefault();
+        dispatch(cardSize());
+    }
+
     return(
 
         <div className="home" key={Math.random()}>
@@ -108,10 +107,15 @@ export default function Home(){
         </button>
         <Link to= '/pokemon/create'><button className="button">Crear Pokemon!</button></Link>
 
-        <button onClick={element => handleBackground(element)}>Cambiar Color</button>
+        <button className="button" onClick={element => handleBackground(element)}>Dia/Noche</button>
 
-        <div className="header">
+        <button className="button" onClick={element => handleSize(element)}>Tamaño de cartas</button>
 
+        <hr/>
+
+        <div className="homeMenu">
+
+            <div className="header">
             {/*Ordenamiento Ascendente y Descendente, orden alfabetico y por ataque*/}
 
             <select className="button"
@@ -151,13 +155,16 @@ export default function Home(){
                     ))}
                 </select>
 
+            </div>
+
             <hr/>
 
             {/*Renderizo las cartas de los pokemon en Home*/}
             <div className={ backgroundTheme ? 'lightBackground' : 'darkBackground'}>
             <div className="container">
-            {
-                currentPokemons?.map((element)=>{
+
+            {currentPokemons.length?
+                currentPokemons.map((element)=>{
                     return(
                         <div className="cards" key={element.id}>
                             <Card 
@@ -171,15 +178,20 @@ export default function Home(){
                     </div>
                     );
                 })
-            }                    
+            :
+            
+            <div><Loader/></div>}
+                  
             </div>
-            </div>
+
             <div className="paging">
             <Paging
             pokemonsPerPage={pokemonsPerPage}
             allPokemons={allPokemons.length}
             paging = {paging}>    
             </Paging>
+            </div>
+
             </div>
         </div>
 

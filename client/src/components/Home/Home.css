@@ -1,5 +1,7 @@
 .home{
     justify-content: center;
+    background-color: rgb(146, 146, 146);
+
 }
 
 .lightBackground{
@@ -8,7 +10,6 @@
 
 .darkBackground{
     background-image: url('../../images/darkForest.jpg');
-
 }
 
 .container{

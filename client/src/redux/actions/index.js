@@ -109,3 +109,10 @@ export function backgroundStyle(payload){
     payload
   }
 }
+
+export function cardSize(payload){
+  return{
+    type: "CARD_SIZE",
+    payload
+  }
+}

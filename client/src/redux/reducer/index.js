@@ -1,11 +1,10 @@
-import { backgroundStyle } from "../actions";
-
 const initialState = {
     pokemons: [],
     pokemonsAuxNoFilter: [],
     types: [],
     pokemonDetail: [],
-    backgroundStyle:true
+    backgroundStyle:true,
+    cardSize:true
   };
   
   const rootReducer = (state = initialState, action) => {
@@ -38,9 +37,8 @@ const initialState = {
           case 'FILTER_TYPES':
             console.log(action.payload)
             const allPokemonsForTypes = state.pokemonsAuxNoFilter;
-            const filterTypes = allPokemonsForTypes.filter(
-              element => 
-              {if(element.types.find(type=>type.name == action.payload)){
+            const filterTypes = allPokemonsForTypes.filter(element => 
+              {if(element.types.find(type=>type.name === action.payload)){
                 return element
               }
             }
@@ -108,7 +106,7 @@ const initialState = {
          case "GET_POKEMON_BY_NAME":
            return {
               ...state,
-              pokemons: action.payload,
+              pokemons: [action.payload],
           };
 
           case "GET_POKEMON_DETAIL":
@@ -123,6 +121,17 @@ const initialState = {
               ...state,
               backgroundStyle: !dayNight
             }
+
+            case "CARD_SIZE":
+              const size = state.cardSize;
+              size ?
+              alert('Pokemons tamaño cimetrico'):
+              alert('Pokemons tamaño segun altura')
+              return{
+                ...state,
+                cardSize: !size
+              }
+  
 
         default: return {...state};
         

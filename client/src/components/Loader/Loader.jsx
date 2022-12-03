@@ -1,9 +1,11 @@
 import React from "react";
+import url from '../../images/loader.gif'
 
 const Loader = () => {
   return (
     <div>
-      <span>Loading...</span>
+      <p>Cargando!</p>
+      <img src={url}/>
     </div>
   );
 };

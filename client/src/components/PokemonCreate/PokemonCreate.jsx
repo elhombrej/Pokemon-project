@@ -92,6 +92,7 @@ export default function PokemonCreate(){
                     type='text'
                     value= {input.name}
                     name='name'
+                    placeholder="Nombre obligatorio"
                     onChange={(element)=>handleChange(element)}
                     />   
                     {errors.name && (
@@ -107,46 +108,51 @@ export default function PokemonCreate(){
                     type='text'
                     value= {input.hp}
                     name='hp'
+                    placeholder="Vida"
                     onChange={(element)=>handleChange(element)}
                     />   
                 </div>
 
                 <div>
-                    <label>Image URL:</label>
+                    <label>Imagen (URL):</label>
                     <input
                     type='text'
                     value= {input.img}
                     name='img'
+                    placeholder="Imagen"
                     onChange={(element)=>handleChange(element)}
                     />   
                 </div>
 
                 <div>
-                    <label>Ataque:</label>
+                    <label>Puntos de ataque:</label>
                     <input
                     type='text'
                     value= {input.attack}
                     name='attack'
+                    placeholder="Ataque"
                     onChange={(element)=>handleChange(element)}
                     />   
                 </div>
 
                 <div>
-                    <label>Defensa:</label>
+                    <label>Puntos de defensa:</label>
                     <input
                     type='text'
                     value= {input.defense}
                     name='defense'
+                    placeholder="Defensa"
                     onChange={(element)=>handleChange(element)}
                     />   
                 </div>
 
                 <div>
-                    <label>Velocidad:</label>
+                    <label>Puntos de velocidad:</label>
                     <input
                     type='text'
                     value= {input.speed}
                     name='speed'
+                    placeholder="Velocidad"
                     onChange={(element)=>handleChange(element)}
                     />   
                 </div>
@@ -157,6 +163,7 @@ export default function PokemonCreate(){
                     type='text'
                     value= {input.height}
                     name='height'
+                    placeholder="Altura"
                     onChange={(element)=>handleChange(element)}
                     />   
                 </div>
@@ -167,6 +174,7 @@ export default function PokemonCreate(){
                     type='text'
                     value= {input.weight}
                     name='weight'
+                    placeholder="Peso"
                     onChange={(element)=>handleChange(element)}
                     />   
                 </div>
