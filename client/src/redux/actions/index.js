@@ -54,14 +54,14 @@ export function filterCreated(payload){
       type: 'FILTER_CREATED',
       payload
     }
-  };
+};
 
   export function filterTypes(payload){
     return{
       type: 'FILTER_TYPES',
       payload
     }
-  };  
+};  
 
 export function orderByName(payload){
     return{
@@ -103,3 +103,9 @@ export function getPokemonDetail(payload){
   }
 }
 
+export function backgroundStyle(payload){
+  return{
+    type: "BACKGROUND_STYLE",
+    payload
+  }
+}

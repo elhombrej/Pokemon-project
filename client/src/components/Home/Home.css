@@ -1,6 +1,16 @@
 .home{
     justify-content: center;
 }
+
+.lightBackground{
+    background-image: url('../../images/lightForest.jpg');
+}
+
+.darkBackground{
+    background-image: url('../../images/darkForest.jpg');
+
+}
+
 .container{
     display:inline-flex;
     flex-wrap: wrap;
@@ -8,6 +18,7 @@
     height: min-content;
     text-align: center;
 }
+
 .container .cards {
     justify-content: center;
     margin: 2rem;
@@ -48,4 +59,8 @@
 .button{
     cursor: pointer;
     margin: 2px;
+}
+
+.cards{
+    background-color: rgba(255, 255, 255, 0.147);
 }

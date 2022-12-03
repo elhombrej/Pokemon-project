@@ -1,7 +1,7 @@
 import React from "react";
 // import { connect } from "react-redux";
 import "./Home.css";
-import { getPokemons, getTypes, filterCreated, orderByName, orderByAttack, filterTypes } from "../../redux/actions";
+import { getPokemons, getTypes, filterCreated, orderByName, orderByAttack, filterTypes, backgroundStyle } from "../../redux/actions";
 import {useState,useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from "react-router-dom";
@@ -21,6 +21,9 @@ export default function Home(){
     const allPokemons = useSelector((state) => state.pokemons);
 
     const pokemonTypes = useSelector((state) => state.types);
+
+    const backgroundTheme = useSelector((state) => state.backgroundStyle);
+
 
 
     //Estado local sobre el paginado:
@@ -45,6 +48,10 @@ export default function Home(){
     useEffect(()=>{
         dispatch(getTypes())
     },[dispatch])
+
+    // useEffect(()=>{
+    //     dispatch(backgroundStyle())
+    // },[dispatch])
 
     //Despacho la accion getPokemons a lhacer click
 
@@ -81,6 +88,10 @@ export default function Home(){
         setOrder(`Ordenado ${element.target.value}`)
     }
 
+    function handleBackground(element){
+        element.preventDefault();
+        dispatch(backgroundStyle(element));
+    }
 
     return(
 
@@ -96,7 +107,10 @@ export default function Home(){
         Volver a cargar Pokemons!
         </button>
         <Link to= '/pokemon/create'><button className="button">Crear Pokemon!</button></Link>
-        <div className="background">
+
+        <button onClick={element => handleBackground(element)}>Cambiar Color</button>
+
+        <div className="header">
 
             {/*Ordenamiento Ascendente y Descendente, orden alfabetico y por ataque*/}
 
@@ -140,7 +154,9 @@ export default function Home(){
             <hr/>
 
             {/*Renderizo las cartas de los pokemon en Home*/}
-            <div className='container' >{
+            <div className={ backgroundTheme ? 'lightBackground' : 'darkBackground'}>
+            <div className="container">
+            {
                 currentPokemons?.map((element)=>{
                     return(
                         <div className="cards" key={element.id}>
@@ -156,6 +172,7 @@ export default function Home(){
                     );
                 })
             }                    
+            </div>
             </div>
             <div className="paging">
             <Paging

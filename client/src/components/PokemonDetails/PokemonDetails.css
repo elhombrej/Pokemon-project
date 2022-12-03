@@ -1,3 +1,11 @@
-.details{
-    background-color: aquamarine;
+.lightBackgroundDetails{
+    background-image: url('../../images/lightForestDetails.jpg');
+    background-position: center;
+    background-size:cover;
+}
+
+.darkBackgroundDetails{
+    background-image: url('../../images/darkForestDetails.jpg');
+    background-position: center;
+    background-size:cover;
 }

@@ -1,8 +1,11 @@
+import { backgroundStyle } from "../actions";
+
 const initialState = {
     pokemons: [],
     pokemonsAuxNoFilter: [],
     types: [],
     pokemonDetail: [],
+    backgroundStyle:true
   };
   
   const rootReducer = (state = initialState, action) => {
@@ -113,6 +116,13 @@ const initialState = {
                ...state,
                pokemonDetail: action.payload,
            };
+
+           case "BACKGROUND_STYLE":
+            const dayNight = state.backgroundStyle;
+            return{
+              ...state,
+              backgroundStyle: !dayNight
+            }
 
         default: return {...state};
         

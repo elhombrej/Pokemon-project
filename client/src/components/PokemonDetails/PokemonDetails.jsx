@@ -1,3 +1,4 @@
+import './PokemonDetails.css'
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,10 +10,12 @@ export default function PokemonDetails(props){
   useEffect(()=>{dispatch(getPokemonDetail(props.match.params.id))},[dispatch])
 
   const pokemon = useSelector(state=>(state.pokemonDetail));
+
+  const background = useSelector(state=>(state.backgroundStyle));
   
-  console.log(pokemon)
   return(
-    <div>
+  <div className={ background ? 'lightBackgroundDetails' : 'darkBackgroundDetails'}
+    >
       {pokemon.id == props.match.params.id?
       <div>
         <h1>{(pokemon.name.toString().toUpperCase() + "!")}</h1>
