@@ -5,8 +5,8 @@ import Home from './components/Home/Home';
 import PokemonCreate from './components/PokemonCreate/PokemonCreate';
 import PokemonDetails from './components/PokemonDetails/PokemonDetails';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001/'
-
+axios.defaults.baseURL = 'https://pi-pokemon-main-production-a050.up.railway.app/'
+//'http://localhost:3001/'
 function App() {
   return (
     <BrowserRouter>
