@@ -8,7 +8,7 @@ function LandingPage(){
             <div className="elementsLand">
             <h1 className="titleLand">Project Pokemon Seek</h1>
             <h5 className="titleLand">By Joaquinpadron@outlook.com</h5>
-            <Link to= "/home"><button className= "buttonLanding">Ingresar!</button> </Link>
+            <Link to= "/home"><button className= "buttonLanding">Discover!</button> </Link>
             </div>
         </div>
     )
