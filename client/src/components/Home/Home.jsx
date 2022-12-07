@@ -98,7 +98,7 @@ export default function Home(){
     return(
 
         <div className="home" key={Math.random()}>
-        Proyecto Individual por Padron Joaquin Joaquinpadron@outlook.com para "Henry" Bootcamp.
+        Individual project by Padron Joaquin Joaquinpadron@outlook.com for "Henry" Bootcamp.
 
         {currentPokemons.length?  
         <div>      

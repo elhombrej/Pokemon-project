@@ -27,12 +27,12 @@
   top: 50%;
 }
 
-.labelCreate{
+/* .labelCreate{
   height: min-content;
   background-color: rgba(173, 190, 230, 0.48);
   margin: 3px;
   padding:1px;
-}
+} */
 
 .container{
   height: 100%;

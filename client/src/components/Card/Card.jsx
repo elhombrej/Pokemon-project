@@ -14,12 +14,12 @@ height*15+"px":
   return (
     <div className="card">
           <div className="card-body" key={id}>
-            <Link className="linkCard" to= {`/details/${id}`}>
+          <Link className="linkCard" to= {`/details/${id}`}>
               <h1 className="card-title">{name.toUpperCase()}</h1>
-              </Link>
           <img 
           src={img} alt={"No image!"} width={size} height={size}/>
           <p className="types">{types.map(element=> element.name +"\n")}</p>
+          </Link>
           </div>
     </div>
   );
