@@ -41,10 +41,10 @@ export const postPokemon = (payload) => {
   return async () => {
     try {
       const json = await axios.post("/pokemon", payload);
-      console.log(json);
+      alert('Pokemon creation succesfull!');
       return json;
     } catch (error) {
-      return { error: error.message};
+      return  alert('Error creating Pokemon.');
     }
   };
 };
@@ -85,7 +85,7 @@ export function getPokemonByName(payload){
         type:"GET_POKEMON_BY_NAME",
         payload: json.data
       })
-    }catch(error){console.log(error)}
+    }catch(error) {alert('Unknown Pokemon.')}
   }
 }
 

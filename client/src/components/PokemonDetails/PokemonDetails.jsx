@@ -3,8 +3,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemonDetail } from "../../redux/actions";
-import Loader from '../Loader/Loader';
-
+import url from '../../images/loader5.gif'
 
 export default function PokemonDetails(props){
   const dispatch = useDispatch();
@@ -15,26 +14,30 @@ export default function PokemonDetails(props){
 
   const background = useSelector(state=>(state.backgroundStyle));
   return(
-  <div
-    >
+  <div>
+
       {pokemon.id == props.match.params.id?
+
       <div className={ background ? 'lightBackgroundDetails' : 'darkBackgroundDetails'}>
-        <h1>{(pokemon.name.toString().toUpperCase() + "!")}</h1>
+        <h1 className='nameDetails'>{(pokemon.name.toString().toUpperCase() + "!")}</h1>
         <img src={pokemon.img} alt={"Imagen desaparecida!"} width={"400"} height={"400px"}/>
-        <h2>Puntos de Vida!: {pokemon.hp}</h2>
-        <h2>Puntos de Ataque!: {pokemon.attack}</h2>
-        <h2>Puntos de Defensa!: {pokemon.defense}</h2>
-        <h2>Puntos de Velocidad!: {pokemon.speed}</h2>
-        <h2>Alto!: {pokemon.height} pies</h2>
-        <h2>Peso!: {pokemon.weight} kg</h2>
-        <h2>Tipos!: {pokemon.types.map(element=>"-"+element.name.toString()+"-")}</h2>
+        <h2 className='nameDetails'>Health points!: {pokemon.hp}</h2>
+        <h2 className='nameDetails'>Attack points!: {pokemon.attack}</h2>
+        <h2 className='nameDetails'>Deffense points!: {pokemon.defense}</h2>
+        <h2 className='nameDetails'>Speed points!: {pokemon.speed}</h2>
+        <h2 className='nameDetails'>Height!: {pokemon.height} feets</h2>
+        <h2 className='nameDetails'>Weight!: {pokemon.weight} kg</h2>
+        <h2 className='nameDetails'>Types!: {pokemon.types.map(element=>"-"+element.name.toString()+"-")}</h2>
+        <Link to='/home' className='linkHome'>
+        <button className='homeButton'>Home</button>
+        </Link>
       </div> 
-        // :<img src={url} alt='Cargando...'/>
-        :<div><Loader/></div>
+        :
+        <div className='loader2'>
+          <img src={url} alt={"Still Loading..."}/>
+          <div className='loadingTitle'>-Loading-</div>
+        </div>
     }
-    <Link to='/home' className='linkHome'>
-      <button>Inicio</button>
-    </Link>
     </div>
   )
 }

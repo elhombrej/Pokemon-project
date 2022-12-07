@@ -29,13 +29,12 @@ const initialState = {
           allPokemonsCF.filter(element=> !element.createdInDb);
           return{
             ...state,
-            pokemons: action.payload === 'all' ? 
-            state.allPokemonsCF : 
+            pokemons: action.payload === 'all'? 
+            allPokemonsCF :
             filterCreated
           }  
 
           case 'FILTER_TYPES':
-            console.log(action.payload)
             const allPokemonsForTypes = state.pokemonsAuxNoFilter;
             const filterTypes = allPokemonsForTypes.filter(element => 
               {if(element.types.find(type=>type.name === action.payload)){
@@ -125,8 +124,8 @@ const initialState = {
             case "CARD_SIZE":
               const size = state.cardSize;
               size ?
-              alert('Pokemons tamaño cimetrico'):
-              alert('Pokemons tamaño segun altura')
+              alert('Symmetrical Size Pokemons!'):
+              alert('Height Size Pokemons')
               return{
                 ...state,
                 cardSize: !size

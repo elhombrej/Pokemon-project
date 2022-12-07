@@ -1,4 +1,38 @@
-.button{
-    cursor: pointer;
+.input{
+    font-size: 14px;
+    line-height: 20px;
+    padding: 6px 16px;
+  
+}
+
+.button2{
     margin: 2px;
+    appearance: none;
+    background-color: #a42e2e;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    margin: 2px;
+}
+
+.searchBody{
+    align-items: normal;
+    align-items: flex-start;
+    margin: 5px;
 }
