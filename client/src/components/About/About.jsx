@@ -45,7 +45,7 @@ export default function About(){
 
             <h5>CP 8400, San Carlos De Bariloche, Rio Negro, Argentina</h5>
             <h5>2022</h5>
-            <h5>Without Full-Stack developers all webs would look like this tab.</h5>
+            <h5>Without web developers all webs would look like this tab.</h5>
             <h5>...</h5>
             <Link to='/home'>GO HOME!</Link>
 

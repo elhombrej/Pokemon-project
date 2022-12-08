@@ -4,18 +4,23 @@ const initialState = {
     types: [],
     pokemonDetail: [],
     backgroundStyle:true,
-    cardSize:true
+    cardSize:true,
+    loadingStatus: true
   };
   
   const rootReducer = (state = initialState, action) => {
 
     switch (action.type) {
       case "GET_POKEMONS":
+        if(action.payload !== 'error'){
         return {
           ...state,
           pokemons: action.payload,
-          pokemonsAuxNoFilter: action.payload
+          pokemonsAuxNoFilter: action.payload,
+          loadingStatus:true
+        }
         };
+        
         case "GET_TYPES":
           return {
             ...state,
@@ -103,10 +108,19 @@ const initialState = {
           }
         
          case "GET_POKEMON_BY_NAME":
-           return {
+        if(action.payload!=='error')
+        {return{
               ...state,
               pokemons: [action.payload],
-          };
+              loadingStatus: true
+            }
+        }else{
+        return{
+          ...state,
+          pokemons: state.pokemonsAuxNoFilter,
+          loadingStatus: true
+        }}
+          ;
 
           case "GET_POKEMON_DETAIL":
             return {
@@ -130,6 +144,10 @@ const initialState = {
                 ...state,
                 cardSize: !size
               }
+            
+            case "LOADING":
+              const load = state.loadingStatus;
+              return{...state, loadingStatus: !load}
   
 
         default: return {...state};

@@ -28,12 +28,14 @@ export default function Paging({pokemonsPerPage, allPokemons,paging,current}){
                 {pageNumbers.length>1&&
                 pageNumbers.map(number =>(
                     <div key={number}>
-                        <a></a>
-                    <li 
-                    className="pages" 
-                    key={number}>
+                    <li className='pages'
+                        key={number}>
                     <button 
-                        className="number" 
+                        className={
+                            number==current? 
+                            "currentButton":
+                            "number"
+                        }
                         onClick={()=> paging(number)}>
                             {number}
                     </button>

@@ -4,12 +4,41 @@
     font-size: x-large;
 
 }
-.pages:hover{
+
+.currentPage{
+    position: relative;
+    display: flex;
+    width: min-content;
+    height: min-content;
+    background-color: rgba(255, 255, 255, 0.404);
+    padding: 0.3rem;
+    justify-content: center;
+    list-style-type:none;
     transform: translateY(-5px);
     box-shadow: 0 12px 16px #000000b8;
     text-align: center;
-    transition: all 0.25s;
+}
 
+.currentButton{
+    transform: translateY(-5px);
+    box-shadow: 0 12px 16px #000000b8;
+    color:black;
+    cursor: pointer;
+    background-color: #2e7fa4;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    margin: 2px;
+    font-size: x-large;
 }
 
 .pages{
@@ -20,6 +49,7 @@
     background-color: rgba(255, 255, 255, 0.404);
     padding: 0.3rem;
     justify-content: center;
+    list-style-type:none
 }
 
 .number{
@@ -39,5 +69,12 @@
     text-align: center;
     vertical-align: middle;
     margin: 2px;
-  
+}
+
+.number:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 12px 16px #000000b8;
+    text-align: center;
+    transition: all 0.25s;
+    font-size: x-large;
 }

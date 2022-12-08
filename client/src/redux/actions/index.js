@@ -1,13 +1,4 @@
-// const axios = require ('axios');
 import axios from "axios";
-
-// let reqInstance = axios.create({
-//     headers: {
-//         "Accept-Encoding": "null"
-//       }
-//     }
-// );
-
 
 export const getPokemons = () => {
   return async (dispatch) => {
@@ -17,8 +8,11 @@ export const getPokemons = () => {
         type: "GET_POKEMONS",
         payload: json.data,
       });
-    } catch (error) {
-      return { error: error.message};
+    } catch (error) {alert('Fatal error, reload the page or try again later.')
+      return {
+      type: "GET_POKEMONS",
+      payload: 'error',
+    };
     }
   };
 };
@@ -85,7 +79,11 @@ export function getPokemonByName(payload){
         type:"GET_POKEMON_BY_NAME",
         payload: json.data
       })
-    }catch(error) {alert('Error: Unknown Pokemon.')}
+    }catch(error) {alert('Error: Unknown Pokemon.');
+    return dispatch({
+      type:"GET_POKEMON_BY_NAME",
+      payload: 'error'
+    })}
   }
 }
 
@@ -113,6 +111,13 @@ export function backgroundStyle(payload){
 export function cardSize(payload){
   return{
     type: "CARD_SIZE",
+    payload
+  }
+}
+
+export function loadingStatus(payload){
+  return{
+    type:"LOADING",
     payload
   }
 }

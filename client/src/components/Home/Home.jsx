@@ -1,13 +1,12 @@
 import React from "react";
 import "./Home.css";
-import { getPokemons, getTypes, filterCreated, orderByName, orderByAttack, filterTypes, backgroundStyle, cardSize } from "../../redux/actions";
+import { getPokemons, getTypes, filterCreated, orderByName, orderByAttack, filterTypes, backgroundStyle, cardSize, loadingStatus } from "../../redux/actions";
 import {useState,useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paging from "../Paging/Paging";
 import SearchBar from "../SearchBar/SearchBar";
-import About from "../About/About";
 import url from '../../images/loader4.gif'
 
 
@@ -21,9 +20,13 @@ export default function Home(){
 
     const allPokemons = useSelector((state) => state.pokemons);
 
+    const allPokemonsAux = useSelector((state) => state.allPokemonsAuxNoFilter);
+
     const pokemonTypes = useSelector((state) => state.types);
 
     const backgroundTheme = useSelector((state) => state.backgroundStyle);
+
+    const load = useSelector((state) => state.loadingStatus);
 
     //const pokemonsNoFilter = useSelector((state) => state.pokemonsAuxNoFilter);
 
@@ -46,20 +49,21 @@ export default function Home(){
         setCurrentPage(pageNumber)
     };
 
-    //despacho la accion getPokemons
+    //despacho las acciones:
 
-    useEffect(()=>{
-        dispatch(getPokemons())
-    },[dispatch])
+        useEffect(()=>{
+            dispatch(getPokemons())
+        },[dispatch])
+    
+        useEffect(()=>{
+            dispatch(getTypes())
+        },[dispatch])    
 
-    useEffect(()=>{
-        dispatch(getTypes())
-    },[dispatch])
-
-    //Despacho la accion getPokemons al hacer recargo de Pokemons
+    //Despacho la accion getPokemons al hacer recargo de Pokemons:
 
     function handleClick(element){
         element.preventDefault();
+        dispatch(loadingStatus())
         dispatch(getPokemons());
     }
 
@@ -105,7 +109,8 @@ export default function Home(){
 
         <div className="home" key={Math.random()}>
 
-        {currentPokemons.length?  
+        {currentPokemons.length && load?  
+        
         <div>      
         
         <h1 className="title">Project Pokemon Seek!</h1>
