@@ -120,6 +120,8 @@ export default function Home(){
         <div className="searchBar"><SearchBar/></div>
         
         <hr/>
+
+        <p className="pHome">Options:</p>
         
         <button className="button" onClick={element=>{handleClick(element)}}>
         Reload home!
@@ -131,6 +133,8 @@ export default function Home(){
         <button className="button" onClick={element => handleSize(element)}>Cards Size!</button>
 
         <hr/>
+
+        <p className="pHome">Filters:</p>
 
     {/*Ordenamiento Ascendente y Descendente, orden alfabetico y por ataque*/}
 

@@ -2,6 +2,9 @@ body{
     background-color: rgb(53, 53, 53);
 }
 
+.pHome{
+    color: white
+}
 .home{
     justify-content: center;
     background-color: rgb(53, 53, 53);
