@@ -7,12 +7,12 @@ import './PokemonCreate.css'
 function validate(input){
     let errors={};
     if(input.name.length > 12){errors.name = 'Name is required to be a text with 12 characters maximum'}
-    else if(input.hp < 0 || input.hp > 100){errors.name = 'Health Points must be a number between 0 and 100'}
-    else if(input.attack < 0 || input.attack > 100){errors.name = 'Attack Points must be a number between 0 and 100'}
-    else if(input.defense < 0 || input.defense > 100){errors.name = 'Defense Points must be a number between 0 and 100'}
-    else if(input.speed < 0 || input.speed > 100){errors.name = 'Speed Points must be a number between 0 and 100'}
-    else if(input.height < 0 || input.height > 30){errors.name = 'Height Points must be a number between 1 and 30'}
-    else if(input.weight < 0 || input.weight > 500){errors.name = 'Weight Points must be a number between 1 and 500'}
+    else if(input.hp < 0 || input.hp > 100 || !parseInt(input.hp)>0){errors.name = 'Health Points must be a number between 1 and 100'}
+    else if(input.attack < 0 || input.attack > 100 || !parseInt(input.attack)>0){errors.name = 'Attack Points must be a number between 1 and 100'}
+    else if(input.defense < 0 || input.defense > 100 || !parseInt(input.defense)>0){errors.name = 'Defense Points must be a number between 1 and 100'}
+    else if(input.speed < 0 || input.speed > 100 || !parseInt(input.speed)>0){errors.name = 'Speed Points must be a number between 1 and 100'}
+    else if(input.height < 0 || input.height > 30 || !parseInt(input.height)>0){errors.name = 'Height Points must be a number between 1 and 30'}
+    else if(input.weight < 0 || input.weight > 500 || !parseInt(input.weight)>0){errors.name = 'Weight Points must be a number between 1 and 500'}
     return errors;
 }
 
@@ -38,8 +38,6 @@ export default function PokemonCreate(){
     })
 
     function handleChange(element){
-
-        console.log(input.name.length)
 
         setInput({
             ...input,
@@ -106,17 +104,15 @@ export default function PokemonCreate(){
                 )
             }
 
-            {<form onSubmit={(element)=> handleSubmit(element)}>
+            {<form className="formBody" onSubmit={(element)=> handleSubmit(element)}>
                
-
-
                <div>
                     <label className="labelCreate">Name:</label>
                     <input className="inputCreate"
                     type='text'
                     value= {input.name}
                     name='name'
-                    placeholder="Required (12 characters)"
+                    placeholder="Required (- 12 characters)"
                     onChange={
                         (element)=>handleChange(element)}
 
@@ -129,7 +125,7 @@ export default function PokemonCreate(){
                     type='text'
                     value= {input.hp}
                     name='hp'
-                    placeholder="0-100"
+                    placeholder="1-100"
                     onChange={
                         (element)=>handleChange(element)
                     }
@@ -153,7 +149,7 @@ export default function PokemonCreate(){
                     type='text'
                     value= {input.attack}
                     name='attack'
-                    placeholder="0-100"
+                    placeholder="1-100"
                     onChange={(element)=>handleChange(element)}
                     />   
                 </div>}
@@ -164,7 +160,7 @@ export default function PokemonCreate(){
                     type='text'
                     value= {input.defense}
                     name='defense'
-                    placeholder="0-100"
+                    placeholder="1-100"
                     onChange={(element)=>handleChange(element)}
                     />   
                 </div>}
@@ -175,7 +171,7 @@ export default function PokemonCreate(){
                     type='text'
                     value= {input.speed}
                     name='speed'
-                    placeholder="0-100"
+                    placeholder="1-100"
                     onChange={(element)=>handleChange(element)}
                     />   
                 </div>}
@@ -197,7 +193,7 @@ export default function PokemonCreate(){
                     type='text'
                     value= {input.weight}
                     name='weight'
-                    placeholder="0-500"
+                    placeholder="1-500"
                     onChange={(element)=>handleChange(element)}
                     />   
                 </div>}

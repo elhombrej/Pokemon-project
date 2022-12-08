@@ -1,4 +1,4 @@
-.bodyCreate{
+.containerCreate{
   background-image: url('../../images/body.gif');
   background-size:cover;
   background-repeat: no-repeat;
@@ -7,32 +7,47 @@
   width: 100vw;
 }
 
+.bodyCreate{
+  background-color: rgba(255, 255, 255, 0.583);
+  border-radius: 20px;
+  height:max-content;
+  background-position: center;
+  text-align: center;
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+
+}
+
 .chosenTypes{
-    height: min-content;
-    background-color: rgba(135, 206, 250, 0.456);
-    border-radius: 20px;
-    font-size: x-large;
-    font-size: xx-large;
-    text-align: center;
-    cursor: pointer;
-    text-decoration: none;
+  height: min-content;
+  background-color: rgba(135, 206, 250, 0.456);
+  border-radius: 20px;
+  font-size: x-large;
+  font-size: xx-large;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
 
 }
 
 .h1Create{
   color: rgb(0, 0, 0);
+  text-align: center;
 }
 
 .inputCreate{
   top: 50%;
 }
 
-/* .labelCreate{
+.labelCreate{
   height: min-content;
   background-color: rgba(173, 190, 230, 0.48);
   margin: 3px;
   padding:1px;
-} */
+}
 
 .container{
   height: 100%;

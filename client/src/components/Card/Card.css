@@ -6,16 +6,16 @@
 
 .linkCard{
   text-decoration: none;
-  color:rgb(0, 0, 0)
+  color:rgb(56, 49, 49)
 }
 
 .card-title {
   margin:1px;
   width: min-content;
   height: min-content;
-  background-color: rgba(173, 230, 196, 0.47);
-  border-radius: 20px;
-  padding: 0.3rem;
+  background-color: rgba(173, 230, 196, 0.206);
+  border-radius: 10px;
+  padding: 0.2rem;
 }
 
 .card-body {

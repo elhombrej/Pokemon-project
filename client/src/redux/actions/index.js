@@ -85,7 +85,7 @@ export function getPokemonByName(payload){
         type:"GET_POKEMON_BY_NAME",
         payload: json.data
       })
-    }catch(error) {alert('Unknown Pokemon.')}
+    }catch(error) {alert('Error: Unknown Pokemon.')}
   }
 }
 

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paging from "../Paging/Paging";
 import SearchBar from "../SearchBar/SearchBar";
+import About from "../About/About";
 import url from '../../images/loader4.gif'
 
 
@@ -29,12 +30,17 @@ export default function Home(){
 
     //Estado local sobre el paginado:
 
-    const[currentPage, setCurrentPage] = useState(1);
-    const [pokemonsPerPage,,setPokemonsPerPage] = useState(12);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const [pokemonsPerPage,setPokemonsPerPage] = useState(12);
+
     const indexOfLastPokemon = currentPage * pokemonsPerPage;
+
     const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
+
     const currentPokemons = allPokemons.slice(indexOfFirstPokemon,indexOfLastPokemon);
-    const[oreder,setOrder] = useState('');
+
+    const [oreder,setOrder] = useState('');
 
     const paging = (pageNumber)=>{
         setCurrentPage(pageNumber)
@@ -98,12 +104,13 @@ export default function Home(){
     return(
 
         <div className="home" key={Math.random()}>
-        Individual project by Padron Joaquin Joaquinpadron@outlook.com for "Henry" Bootcamp.
 
         {currentPokemons.length?  
         <div>      
         
         <h1 className="title">Project Pokemon Seek!</h1>
+
+        <h5 className="title">Search Pokemon information and create your own!</h5>
 
         <div className="searchBar"><SearchBar/></div>
         
@@ -143,10 +150,10 @@ export default function Home(){
             <select className="button" 
             onChange={element => handleFilterCreated(element)}
             >
-                <option>Filter API or Data Base!</option>
-                <option value='all'>API and Data Base!</option>
-                <option value='api'>API Pokemons!</option>
-                <option value='created'>Data Base Pokemons!</option>
+                <option>Filter original or created!</option>
+                <option value='all'>All Pokemons!</option>
+                <option value='api'>Original Pokemons!</option>
+                <option value='created'>Created Pokemons!</option>
             </select>
 
     {/*Filtro por Tipo*/}
@@ -187,15 +194,24 @@ export default function Home(){
 
                 <hr/>
 
+                <div>
+                    Page: {currentPage}
+                </div>
+
                 {/*Renderizo las cartas de los pokemon en Home*/}
-                
+
                 <div className="paging">
+
                   <Paging
                   pokemonsPerPage={pokemonsPerPage}
                   allPokemons={allPokemons.length}
-                  paging = {paging}>    
+                  paging = {paging}
+                  current={currentPage}>    
                   </Paging>
+
                 </div>
+
+                <p className="aboutHome"><Link to='/about'>About</Link></p>
 
                 <hr/>
 
@@ -209,8 +225,6 @@ export default function Home(){
             <img src={url} alt={"Still Loading..."}/>
             <div className="title">-Loading-</div>
             </div>
-
-        
         }
             
         </div>

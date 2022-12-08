@@ -25,7 +25,7 @@ const getApiInfo = async ()=>{
         })
         pokemons.push(...auxPokemons);
         apiUrl = pokemonsApi.next;
-    }while(apiUrl != null && pokemons.length < 80);
+    }while(apiUrl != null && pokemons.length < 40);
 
     //console.log(pokemons);
 

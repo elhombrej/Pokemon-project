@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import PokemonCreate from './components/PokemonCreate/PokemonCreate';
 import PokemonDetails from './components/PokemonDetails/PokemonDetails';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import About from './components/About/About';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://pi-pokemon-main-production-a050.up.railway.app/'
 //'https://pi-pokemon-main-production-a050.up.railway.app/'
@@ -18,6 +19,7 @@ function App() {
         <Route exact path= '/home' component= {Home}/>
         <Route exact path= '/pokemon/create' component= {PokemonCreate}/>
         <Route exact path= '/details/:id' component= {PokemonDetails}/>
+        <Route path="/about" component={About} />
         <Route path="*" component={PageNotFound} />
       </Switch>
       </div>
