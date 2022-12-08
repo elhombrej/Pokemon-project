@@ -13,14 +13,13 @@ export default function SearchBar(){
     
     function handleInputChange(element){
         element.preventDefault();
-        setName(element.target.value)
+        setName(element.target.value);
     }
 
     function handleSubmit(element){
         element.preventDefault();
         dispatch(loadingStatus());
         dispatch(getPokemonByName(name));
-
     }
     
     return(
@@ -33,7 +32,8 @@ export default function SearchBar(){
             <button 
                 className="button2" 
                 type = 'submit'
-                onClick={(element) =>handleSubmit(element)}>
+                onClick={(element) =>handleSubmit(element)}
+                >
                 Search!
             </button>
         </div>

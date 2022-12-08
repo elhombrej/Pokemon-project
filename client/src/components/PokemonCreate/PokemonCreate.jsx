@@ -98,7 +98,7 @@ export default function PokemonCreate(){
             <h1 className="h1Create">Create your own Pokemon!</h1>
 
             {input.name && (
-                <p className="labelCreate">
+                <p className="requirements">
                 {errors.name}
                 </p>
                 )

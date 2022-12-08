@@ -8,7 +8,8 @@ export const getPokemons = () => {
         type: "GET_POKEMONS",
         payload: json.data,
       });
-    } catch (error) {alert('Fatal error, reload the page or try again later.')
+    } catch (error) {
+      alert('Fatal error, reload the page or try again later.')
       return {
       type: "GET_POKEMONS",
       payload: 'error',
