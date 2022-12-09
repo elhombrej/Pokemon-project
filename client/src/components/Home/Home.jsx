@@ -20,8 +20,6 @@ export default function Home(){
 
     const allPokemons = useSelector((state) => state.pokemons);
 
-    const allPokemonsAux = useSelector((state) => state.allPokemonsAuxNoFilter);
-
     const pokemonTypes = useSelector((state) => state.types);
 
     const backgroundTheme = useSelector((state) => state.backgroundStyle);
@@ -37,17 +35,13 @@ export default function Home(){
 
     const [pokemonsPerPage,setPokemonsPerPage] = useState(12);
 
+    const [oreder,setOrder] = useState('');
+
     const indexOfLastPokemon = currentPage * pokemonsPerPage;
 
     const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
 
     const currentPokemons = allPokemons.slice(indexOfFirstPokemon,indexOfLastPokemon);
-
-    const [oreder,setOrder] = useState('');
-
-    const paging = (pageNumber)=>{
-        setCurrentPage(pageNumber)
-    };
 
     //despacho las acciones:
 
@@ -57,7 +51,7 @@ export default function Home(){
     
         useEffect(()=>{
             dispatch(getTypes())
-        },[dispatch])    
+        },[dispatch])        
 
     //Despacho la accion getPokemons al hacer recargo de Pokemons:
 
@@ -105,6 +99,10 @@ export default function Home(){
         dispatch(cardSize());
     }
 
+    const paging = (pageNumber)=>{
+        setCurrentPage(pageNumber)
+    };
+
     return(
 
         <div className="home" key={Math.random()}>
@@ -123,9 +121,8 @@ export default function Home(){
 
         <p className="pHome">Options:</p>
         
-        <button className="button" onClick={element=>{handleClick(element)}}>
-        Reload home!
-        </button>
+        <button className="button" onClick={element=>{handleClick(element)}}>Reload home!</button>
+
         <Link to= '/pokemon/create'><button className="button">Create Pokemon!</button></Link>
 
         <button className="button" onClick={element => handleBackground(element)}>Change Theme!</button>
@@ -183,7 +180,9 @@ export default function Home(){
                 <div className="container">
         
                     {currentPokemons.map((element)=>{
+
                             return(
+                                
                                 <div className="cards" key={element.id}>
                                     <Card 
                                     key={element.id}
@@ -233,7 +232,9 @@ export default function Home(){
             <div className="loader1">
             <img src={url} alt={"Still Loading..."}/>
             <div className="title">-Loading-</div>
-            </div>
+            <p className="homeAux" onClick={element=>{handleClick(element)}}>Reload home!</p>
+            </div>        
+            
         }
             
         </div>

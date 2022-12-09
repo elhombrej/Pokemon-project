@@ -72,6 +72,7 @@ const initialState = {
             }
             return 0;
           })
+
           return{
             ...state,
             pokemons:sortedArrayNames

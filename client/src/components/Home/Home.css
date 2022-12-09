@@ -17,6 +17,7 @@ body{
     left: 45%;
     margin-top: -50px;
     margin-left: -100px;
+    flex-shrink: 0;
 }
 
 .title{
@@ -103,6 +104,17 @@ body{
     flex-shrink: 0;
 }
 
+.homeAux{
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0%;
+    right: 45%;
+    margin-top: -50px;
+    margin-left: -100px;
+
+}
+
 .aboutHome{
-    background:none
+    background:none;
 }

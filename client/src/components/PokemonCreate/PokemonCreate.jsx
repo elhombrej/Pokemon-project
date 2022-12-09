@@ -13,16 +13,21 @@ function validate(input){
     else if(input.speed < 0 || input.speed > 100 || !parseInt(input.speed)>0){errors.name = 'Speed Points must be a number between 1 and 100'}
     else if(input.height < 0 || input.height > 30 || !parseInt(input.height)>0){errors.name = 'Height Points must be a number between 1 and 30'}
     else if(input.weight < 0 || input.weight > 500 || !parseInt(input.weight)>0){errors.name = 'Weight Points must be a number between 1 and 500'}
+
     return errors;
 }
 
-let typeCount =0;
-
 export default function PokemonCreate(){
+
     const dispatch = useDispatch();
+    
     const history = useHistory();
+    
     const types = useSelector((state)=> state.types);
+    
     const [errors, setErrors] = useState({});
+
+    // let typesA = types
 
     const [input,setInput] = useState({
         name:"",
@@ -51,12 +56,23 @@ export default function PokemonCreate(){
     }
 
     function handleSelect(element){
+
+        // input.types.length < 4 &&
+
         setInput({
             ...input,
             types:[...input.types, {name: element.target.value}]
         })
 
-        typeCount += 1;
+        // typesA = types.filter(election => election.name !== element.target.value)
+
+        // console.log(types[0].name)
+
+        // console.log(element.target.value)
+
+        // console.log(types[0].name == element.target.value)
+
+        // console.log(typesA)
     }
 
     function handleSubmit(element){
@@ -82,7 +98,6 @@ export default function PokemonCreate(){
             ...input,
             types: input.types.filter(type => type !== element)
         })
-        typeCount -=1
     }
 
     useEffect(()=>{
@@ -110,7 +125,7 @@ export default function PokemonCreate(){
                     <label className="labelCreate">Name:</label>
                     <input className="inputCreate"
                     type='text'
-                    value= {input.name}
+                    value= {(input.name).toLowerCase()}
                     name='name'
                     placeholder="Required (- 12 characters)"
                     onChange={
@@ -199,12 +214,14 @@ export default function PokemonCreate(){
                 </div>}
 
                 {input.weight&&
+
+                <div>
                 
                 <select 
                 className="buttonCreate1"
                 onChange={(element)=>handleSelect(element)}>
 
-                <option>Choose 3 Types!</option>
+                <option>Choose 3 diferent Types!</option>
 
                     {types.map((element)=>(
                         <option 
@@ -212,24 +229,38 @@ export default function PokemonCreate(){
                         name ='types' 
                         value={element.name}>{element.name}</option>
                     ))}
-                </select>}
+
+                </select>
+                
+                <p>Tap type to unselect</p>
+
+                </div>
+
+                }
 
                 <ul>
                     <div>
                         {input.types.map((element)=>
+                        
                         <li 
                         className="chosenTypes" 
                         key={Math.random()} 
                         onClick={()=>handleDelete(element)
                             }>
-                            {(element.name.toString())}                            
-                        </li>)
+                            {(element.name.toString())} 
+                        </li>                      
+                        )
                         }
                     </div>
                 </ul>
 
-                {!errors.name && input.name &&typeCount < 4 &&
-                (<button  className="buttonCreate2"types='submit'>Crear!</button>)}
+                {!errors.name && 
+                input.name &&
+                input.types.length < 4 &&
+
+                (<button  
+                className="buttonCreate2"
+                types='submit'>Create!</button>)}
 
             </form>}
         </div>

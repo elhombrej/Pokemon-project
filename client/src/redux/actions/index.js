@@ -27,7 +27,7 @@ export function getTypes(){
         payload: info.data,
       });
     } catch (error) {
-      return { error: error.message};
+      alert('Fatal error, reload the page or try again later.')
     }
   };
 };
@@ -45,13 +45,17 @@ export const postPokemon = (payload) => {
 };
 
 export function filterCreated(payload){
-    return{
-      type: 'FILTER_CREATED',
-      payload
+    try{
+      return{
+        type: 'FILTER_CREATED',
+        payload
+      }
+    }catch(error){
+    alert('Fatal error, reload the page or try again later.')
     }
 };
 
-  export function filterTypes(payload){
+export function filterTypes(payload){
     return{
       type: 'FILTER_TYPES',
       payload
@@ -59,18 +63,26 @@ export function filterCreated(payload){
 };  
 
 export function orderByName(payload){
-    return{
-      type: 'ORDER_BY_NAME',
-      payload
+    try{
+      return{
+        type: 'ORDER_BY_NAME',
+        payload
+        }
+    }catch(error){
+    alert('Fatal error, reload the page or try again later.')
     }
 };
 
 export function orderByAttack(payload){
-    return{
-      type: 'ORDER_BY_ATTACK',
-      payload
+    try{
+      return{
+        type: 'ORDER_BY_ATTACK',
+        payload
+        }
+    }catch(error){
+    alert('Fatal error, reload the page or try again later.')
     }
-  };
+};
   
 export function getPokemonByName(payload){
   return async function(dispatch){
@@ -97,28 +109,40 @@ export function getPokemonDetail(payload){
         payload: json.data
       })
     }catch(error){
-      return{error: error.message};
+      alert('Fatal error, reload the page or try again later.')
     }
   }
 }
 
 export function backgroundStyle(payload){
-  return{
-    type: "BACKGROUND_STYLE",
-    payload
+  try{
+    return{
+      type: "BACKGROUND_STYLE",
+      payload
+      }
+  }catch(error){
+  alert('Fatal error, reload the page or try again later.')
   }
 }
 
 export function cardSize(payload){
-  return{
-    type: "CARD_SIZE",
-    payload
+  try{
+    return{
+      type: "CARD_SIZE",
+      payload
+        }
+  }catch(error){
+  alert('Fatal error, reload the page or try again later.')
   }
 }
 
 export function loadingStatus(payload){
-  return{
-    type:"LOADING",
-    payload
+  try{
+    return{
+      type:"LOADING",
+      payload
+        }
+  }catch(error){
+  alert('Fatal error, reload the page or try again later.')
   }
 }
