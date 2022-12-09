@@ -35,6 +35,8 @@ export default function About(){
                 <li>Bash</li>
                 <li>Zsh</li>
                 <li>Firefox explorer</li>
+                <li>Info provided by API:</li>
+                <li>https://pokeapi.co/</li>
             </ul>
             <h5>...</h5>
 

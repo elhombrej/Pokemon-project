@@ -27,7 +27,9 @@ export default function PokemonCreate(){
     
     const [errors, setErrors] = useState({});
 
-    // let typesA = types
+
+    const [typesA, setTypeA] = useState(types);
+
 
     const [input,setInput] = useState({
         name:"",
@@ -57,22 +59,12 @@ export default function PokemonCreate(){
 
     function handleSelect(element){
 
-        // input.types.length < 4 &&
 
         setInput({
             ...input,
             types:[...input.types, {name: element.target.value}]
         })
 
-        // typesA = types.filter(election => election.name !== element.target.value)
-
-        // console.log(types[0].name)
-
-        // console.log(element.target.value)
-
-        // console.log(types[0].name == element.target.value)
-
-        // console.log(typesA)
     }
 
     function handleSubmit(element){
@@ -99,6 +91,7 @@ export default function PokemonCreate(){
             types: input.types.filter(type => type !== element)
         })
     }
+
 
     useEffect(()=>{
         dispatch(getTypes());
@@ -240,23 +233,29 @@ export default function PokemonCreate(){
 
                 <ul>
                     <div>
-                        {input.types.map((element)=>
-                        
+                        {
+                        input.types.map((element)=>
                         <li 
                         className="chosenTypes" 
                         key={Math.random()} 
                         onClick={()=>handleDelete(element)
                             }>
                             {(element.name.toString())} 
-                        </li>                      
+                           {console.log(input.types)}
+                        </li>
                         )
                         }
+                  
                     </div>
                 </ul>
 
                 {!errors.name && 
                 input.name &&
                 input.types.length < 4 &&
+
+                // (input.types[0] !== input.types[1]) &&
+                // (input.types[0] !== input.types[2]) &&
+                // (input.types[1] !== input.types[2]) &&
 
                 (<button  
                 className="buttonCreate2"
