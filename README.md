@@ -11,7 +11,7 @@ Versiones:
 - __redux__: 4.0.5
 - __react-redux__: 7.2.3
 
-### Únicos Endpoints/Flags que pueden utilizar
+### Únicos Endpoints/Flags a utilizar
 
 - GET <https://pokeapi.co/api/v2/pokemon>
 - GET <https://pokeapi.co/api/v2/pokemon/{id}>
