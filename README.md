@@ -1,4 +1,4 @@
-# Individual Project - Pokemon
+# Project Pokemon
 
 # Visit
 
