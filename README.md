@@ -1,6 +1,8 @@
 # Individual Project - Pokemon
 
-Link del proyecto: https://pi-pokemon-main-one.vercel.app
+# Visit
+
+https://pi-pokemon-main-one.vercel.app
 
 - __Node__: 12.18.3 o mayor
 - __NPM__: 6.14.16 o mayor
